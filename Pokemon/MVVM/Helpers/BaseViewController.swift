@@ -32,4 +32,9 @@ open class BaseViewController: UIViewController {
             SVProgressHUD.dismiss()
         }
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+        view.frame.origin.y = 0
+    }
 }

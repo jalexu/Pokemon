@@ -27,6 +27,7 @@ class PokemonListViewModel: ViewModelProtocol {
     //MARK: -Input and Output
     struct Input {
         var namesPokemons = BehaviorRelay<[String]>(value: [])
+        var nameGeneration = BehaviorRelay<(String?, Int, Int)>(value: (nil, 1, 20))
         
     }
     
@@ -39,7 +40,6 @@ class PokemonListViewModel: ViewModelProtocol {
         output = Output()
         pokemonBLBehavior = PokemonListBL(repository: PokemonApiRepository())
         imagesPowerPokemon = ImagesForPokemons()
-        callListOfPokemonGenetation()
         bin()
     }
     
@@ -56,13 +56,21 @@ class PokemonListViewModel: ViewModelProtocol {
                 self.finishProcessOfApi = true
                 
             }).disposed(by: disposeBag)
+        
+        input.nameGeneration.subscribe(
+            onNext: { generation in
+                if generation.0 != nil {
+                    self.callListOfPokemonGenetation(nameGeneration: generation.0!, numberPage: generation.1, numberOfPokemons: generation.2)
+                }
+            }).disposed(by: disposeBag)
+        
     }
     
     
-    func callListOfPokemonGenetation(){
+    func callListOfPokemonGenetation(nameGeneration: String, numberPage: Int, numberOfPokemons: Int){
         
         do {
-            try pokemonBLBehavior.getListOfPokemonForGeneration(idGeneration: 1).asObservable().retry(1).subscribe(
+            try pokemonBLBehavior.getListOfPokemonForGeneration(nameGeneration: nameGeneration, numberPage: numberPage, numberOfPokemons: numberOfPokemons).asObservable().retry(1).subscribe(
                 onNext: { response in
                     var namesOfPokemons = [String]()
                     

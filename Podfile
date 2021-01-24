@@ -12,5 +12,6 @@ target 'Pokemon' do
   pod 'NotificationBannerSwift', '~> 3.0.0'
   pod 'KeychainSwift'
   pod 'SVProgressHUD'
+  pod 'ActionSheetPicker-3.0', '~> 2.7.1'
 
 end

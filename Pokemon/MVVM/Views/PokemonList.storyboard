@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bV0-4a-NGg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZA-pw-Tvz">
                                         <rect key="frame" x="101" y="0.0" width="173" height="48"/>
@@ -49,9 +49,12 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tb-3Z-zwg">
-                                        <rect key="frame" x="131.5" y="108" width="112" height="28"/>
+                                        <rect key="frame" x="99.5" y="108" width="176" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="BOL-DO-Wp7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Filter for categoria">
+                                        <state key="normal" title="Select another category here">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -62,7 +65,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1aG-L7-Sge">
-                                <rect key="frame" x="0.0" y="136" width="375" height="482"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="475"/>
                                 <color key="backgroundColor" name="launch-screen-color"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" systemColor="systemGreenColor"/>
@@ -83,6 +86,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="List" id="l6q-Qm-kqd"/>
                     <connections>
+                        <outlet property="categoryButton" destination="4Tb-3Z-zwg" id="AzH-jF-tcD"/>
                         <outlet property="searchBar" destination="slb-hF-yYK" id="4gD-GH-OrG"/>
                         <outlet property="tableView" destination="1aG-L7-Sge" id="vdk-G2-3gu"/>
                         <segue destination="Auh-9s-hPN" kind="showDetail" identifier="pokemonDetailSegue" id="ciQ-6y-Ldg"/>

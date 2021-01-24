@@ -10,7 +10,7 @@ import Moya
 
 
 public enum PokemonApi {
-    case getListPokemonGenerations(id: Int)
+    case getListPokemonGenerations(nameGeneration: String, numberPage: Int, numberOfPokemons: Int)
     case getPokemon(name: String)
     case getDescriptionPokemon(idPokemon: Int)
 }
@@ -22,8 +22,8 @@ extension PokemonApi: TargetType{
     
     public var path: String {
         switch self {
-        case .getListPokemonGenerations(let id):
-            return URLsOperationServices.getListOfPokemonGenerations.description + "\(id)"
+        case .getListPokemonGenerations(let nameGeneration, _, _):
+            return URLsOperationServices.getListOfPokemonGenerations.description + "\(nameGeneration)"
         case .getPokemon(let name):
             return URLsOperationServices.getPokemon.description + "\(name)"
         case .getDescriptionPokemon(let idPokemon):
@@ -56,15 +56,13 @@ extension PokemonApi: TargetType{
     
     public var task: Task {
         switch self {
-        case .getListPokemonGenerations:
-            return .requestPlain
+        case .getListPokemonGenerations(_, let numberPage, let numberOfPokemons):
+            return .requestParameters(parameters: ["offset":numberPage,
+                                                   "limit":numberOfPokemons], encoding: URLEncoding.queryString)
         case .getPokemon:
             return .requestPlain
         case .getDescriptionPokemon:
             return .requestPlain
-//        case .getListPokemons(let numberMinOfPokemons, let numberMaxOfPokemon):
-//            return .requestParameters(parameters: ["offset": numberMinOfPokemons,
-//                                                   "limit": numberMaxOfPokemon], encoding: URLEncoding.queryString)
         }
     }
     

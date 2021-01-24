@@ -16,8 +16,8 @@ class PokemonListBL: PokemonListBLBehavior {
         self.pokemonListApiRepositoryBejavior = repository
     }
     
-    func getListOfPokemonForGeneration(idGeneration: Int) throws -> Observable<GenerationResponse> {
-        return try pokemonListApiRepositoryBejavior.getListOfPokemonForGeneration(idGeneration: idGeneration).asObservable()
+    func getListOfPokemonForGeneration(nameGeneration: String, numberPage: Int, numberOfPokemons: Int) throws -> Observable<GenerationResponse> {
+        return try pokemonListApiRepositoryBejavior.getListOfPokemonForGeneration(nameGeneration: nameGeneration, numberPage: numberPage, numberOfPokemons: numberOfPokemons).asObservable()
             .flatMap({ response -> Observable<GenerationResponse> in
             return Observable.just(response)
         })

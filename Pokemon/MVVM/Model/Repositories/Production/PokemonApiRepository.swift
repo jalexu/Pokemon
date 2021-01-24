@@ -14,8 +14,8 @@ class PokemonApiRepository: PokemonListApiRepositoryBehavior  {
     
     let pokemonApi = MoyaProvider<PokemonApi>()
     
-    func getListOfPokemonForGeneration(idGeneration: Int) throws -> Observable<GenerationResponse> {
-        return pokemonApi.rx.request(PokemonApi.getListPokemonGenerations(id: idGeneration)).asObservable()
+    func getListOfPokemonForGeneration(nameGeneration: String, numberPage: Int, numberOfPokemons: Int) throws -> Observable<GenerationResponse> {
+        return pokemonApi.rx.request(PokemonApi.getListPokemonGenerations(nameGeneration: nameGeneration, numberPage: numberPage, numberOfPokemons: numberOfPokemons)).asObservable()
             .flatMap({ response -> Observable<GenerationResponse> in
                 
                 if response.statusCode == 200 {
