@@ -10,6 +10,7 @@ import Moya
 import RxCocoa
 import RxSwift
 import ActionSheetPicker_3_0
+import SwiftUI
 
 class PokemonListViewController: BaseViewController{
     
@@ -18,6 +19,12 @@ class PokemonListViewController: BaseViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var categoryButton: UIButton!
+    
+    //MARK: -IBAction
+    @IBAction func likeButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "pokemonLikeSegue", sender: nil)
+    }
+    
     
     //MARK: - Properties
     private let pokemonListViewModel = PokemonListViewModel()
@@ -84,6 +91,8 @@ class PokemonListViewController: BaseViewController{
         }
         actionSheetPicker?.show()
     }
+    
+    
 }
 
 
@@ -132,6 +141,11 @@ extension PokemonListViewController: UITableViewDelegate {
         if segue.identifier == "pokemonDetailSegue" {
             let vc = segue.destination as! PokemonDetailViewController
             vc.pokemon = pokemonIndexSelect
+        }
+        
+        if segue.identifier == "pokemonLikeSegue" {
+            let vc = segue.destination as! LikeViewController
+            vc.pokemon = dataSource
         }
     }
     

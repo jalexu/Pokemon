@@ -40,6 +40,7 @@
 		C28D48B625BCE98700C34076 /* ImagesForPokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D48B525BCE98700C34076 /* ImagesForPokemons.swift */; };
 		C28D48E325BCEC3800C34076 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D48E225BCEC3800C34076 /* Constants.swift */; };
 		C28D490A25BCF15E00C34076 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D490925BCF15E00C34076 /* BaseViewController.swift */; };
+		C296A6FB25BE00E4008BBCDD /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296A6FA25BE00E4008BBCDD /* LikeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		C28D48B525BCE98700C34076 /* ImagesForPokemons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesForPokemons.swift; sourceTree = "<group>"; };
 		C28D48E225BCEC3800C34076 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C28D490925BCF15E00C34076 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C296A6FA25BE00E4008BBCDD /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				C28D483A25BCA72800C34076 /* Cells */,
 				C250F34025BD091B0057FCCF /* ViewController.swift */,
 				C250F34325BD094D0057FCCF /* PokemonDetailViewController.swift */,
+				C296A6FA25BE00E4008BBCDD /* LikeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				C28D48B625BCE98700C34076 /* ImagesForPokemons.swift in Sources */,
 				C28D486025BCC2E000C34076 /* ViewModelProtocol.swift in Sources */,
 				C28D487B25BCCEBE00C34076 /* PokemonApi.swift in Sources */,
+				C296A6FB25BE00E4008BBCDD /* LikeViewController.swift in Sources */,
 				C28D487325BCCC4000C34076 /* PokemonApiRepository.swift in Sources */,
 				C250F35D25BD37EB0057FCCF /* PokemonDetailViewModel.swift in Sources */,
 				C250F35925BD36D10057FCCF /* DescriptionPokemonResponse.swift in Sources */,

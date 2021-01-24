@@ -60,6 +60,7 @@ class PokemonListViewModel: ViewModelProtocol {
         input.nameGeneration.subscribe(
             onNext: { generation in
                 if generation.0 != nil {
+                    self.listPokemons.removeAll()
                     self.callListOfPokemonGenetation(nameGeneration: generation.0!, numberPage: generation.1, numberOfPokemons: generation.2)
                 }
             }).disposed(by: disposeBag)
