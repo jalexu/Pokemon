@@ -96,6 +96,8 @@ class PokemonListViewModel: ViewModelProtocol {
     
     private func storePokemon(pokemon: PokemonResponse){
         
+        var varPokemon = pokemon
+        
         self.pokemon.id = pokemon.id
         self.pokemon.name = pokemon.name
         self.pokemon.powerName = pokemon.types![0].type!.name!
@@ -107,6 +109,27 @@ class PokemonListViewModel: ViewModelProtocol {
             self.pokemon.powerTwo = self.imagesPowerPokemon.setImageOfPowers(typePower: pokemon.types![1].type!.name!)
             self.pokemon.powerNameTwo = pokemon.types![1].type!.name!
         }
+        
+        var string = [String]()
+        
+        if varPokemon.moves!.count > 5 {
+            for _ in 1..<5{
+                
+                if let a = varPokemon.moves?.last {
+                    string.append((a.move?.name)!)
+                varPokemon.moves?.removeLast()
+                }
+            }
+            
+            self.pokemon.moves = string
+            
+        } else {
+           
+        }
+        
+        
+        
+        
         self.listPokemons.append(self.pokemon)
         
         if finishProcessOfApi {

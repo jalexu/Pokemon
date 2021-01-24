@@ -41,7 +41,21 @@ class PokemonApiRepository: PokemonListApiRepositoryBehavior  {
                     let error = NSError(domain: "Error get pokemon", code: response.statusCode, userInfo: ["Error": response.description])
                     return Observable.error(error)
                 }
-            
+        })
+    }
+    
+    func getPoKemonDescription(idPokemon: Int) throws -> Observable<DescriptionPokemonResponse>{
+        return pokemonApi.rx.request(PokemonApi.getDescriptionPokemon(idPokemon: idPokemon)).asObservable().asObservable()
+            .flatMap({ response -> Observable<DescriptionPokemonResponse> in
+                
+                if response.statusCode == 200 {
+                    let decoder = JSONDecoder()
+                    let result = try decoder.decode(DescriptionPokemonResponse.self, from: response.data)
+                    return Observable.just(result)
+                }else {
+                    let error = NSError(domain: "Error get pokemon", code: response.statusCode, userInfo: ["Error": response.description])
+                    return Observable.error(error)
+                }
         })
     }
 }

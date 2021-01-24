@@ -9,5 +9,4 @@ import Foundation
 
 struct NameFromGeneration: Codable {
     var name: String?
-    var language: GeneralResponse?
 }

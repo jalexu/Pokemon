@@ -11,4 +11,5 @@ import RxSwift
 protocol PokemonListApiRepositoryBehavior {
     func getListOfPokemonForGeneration(idGeneration: Int) throws -> Observable<GenerationResponse>
     func getPokemon(name: String) throws -> Observable<PokemonResponse>
+    func getPoKemonDescription(idPokemon: Int) throws -> Observable<DescriptionPokemonResponse>
 }

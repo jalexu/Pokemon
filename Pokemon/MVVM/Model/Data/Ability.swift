@@ -9,6 +9,6 @@ import Foundation
 
 struct Ability: Codable {
     var ability: GeneralResponse?
-    var is_hidden: Bool?
-    var slot: Int?
+//    var is_hidden: Bool?
+//    var slot: Int?
 }

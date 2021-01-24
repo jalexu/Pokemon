@@ -29,6 +29,12 @@ class PokemonListBL: PokemonListBLBehavior {
                 return Observable.just(response)
         })
     }
+    
+    func getPoKemonDescription(idPokemon: Int) throws -> Observable<DescriptionPokemonResponse>{
+        return try pokemonListApiRepositoryBejavior.getPoKemonDescription(idPokemon: idPokemon).asObservable().flatMap({ reponse -> Observable<DescriptionPokemonResponse> in
+            return Observable.just(reponse)
+        })
+    }
 }
 
 

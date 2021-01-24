@@ -9,7 +9,7 @@ import Foundation
 
 enum URLsOperationServices: CustomStringConvertible{
     
-    case getListOfPokemonGenerations, getPokemon
+    case getListOfPokemonGenerations, getPokemon, getPokemonDescription
     
     var description: String{
         switch self {
@@ -17,6 +17,8 @@ enum URLsOperationServices: CustomStringConvertible{
             return "generation/"
         case .getPokemon:
             return "pokemon/"
+        case .getPokemonDescription:
+            return "pokemon-species/"
         }
     }
 }

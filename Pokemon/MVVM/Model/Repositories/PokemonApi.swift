@@ -12,6 +12,7 @@ import Moya
 public enum PokemonApi {
     case getListPokemonGenerations(id: Int)
     case getPokemon(name: String)
+    case getDescriptionPokemon(idPokemon: Int)
 }
 
 extension PokemonApi: TargetType{
@@ -25,6 +26,8 @@ extension PokemonApi: TargetType{
             return URLsOperationServices.getListOfPokemonGenerations.description + "\(id)"
         case .getPokemon(let name):
             return URLsOperationServices.getPokemon.description + "\(name)"
+        case .getDescriptionPokemon(let idPokemon):
+            return URLsOperationServices.getPokemonDescription.description + "\(idPokemon)"
             
         }
     }
@@ -35,6 +38,8 @@ extension PokemonApi: TargetType{
             return .get
         case .getPokemon:
             return .get
+        case .getDescriptionPokemon:
+            return .get
         }
     }
     
@@ -44,6 +49,8 @@ extension PokemonApi: TargetType{
             return Data()
         case .getPokemon:
             return Data()
+        case .getDescriptionPokemon:
+            return Data()
         }
     }
     
@@ -52,6 +59,8 @@ extension PokemonApi: TargetType{
         case .getListPokemonGenerations:
             return .requestPlain
         case .getPokemon:
+            return .requestPlain
+        case .getDescriptionPokemon:
             return .requestPlain
 //        case .getListPokemons(let numberMinOfPokemons, let numberMaxOfPokemon):
 //            return .requestParameters(parameters: ["offset": numberMinOfPokemons,
