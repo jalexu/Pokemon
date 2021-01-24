@@ -96,8 +96,6 @@ class PokemonListViewModel: ViewModelProtocol {
     
     private func storePokemon(pokemon: PokemonResponse){
         
-        var varPokemon = pokemon
-        
         self.pokemon.id = pokemon.id
         self.pokemon.name = pokemon.name
         self.pokemon.powerName = pokemon.types![0].type!.name!
@@ -109,32 +107,53 @@ class PokemonListViewModel: ViewModelProtocol {
             self.pokemon.powerTwo = self.imagesPowerPokemon.setImageOfPowers(typePower: pokemon.types![1].type!.name!)
             self.pokemon.powerNameTwo = pokemon.types![1].type!.name!
         }
-        
-        var string = [String]()
-        
-        if varPokemon.moves!.count > 5 {
-            for _ in 1..<5{
-                
-                if let a = varPokemon.moves?.last {
-                    string.append((a.move?.name)!)
-                varPokemon.moves?.removeLast()
-                }
-            }
-            
-            self.pokemon.moves = string
-            
-        } else {
-           
-        }
-        
-        
-        
+        self.pokemon.abilities = getAbilitiesForPokemon(abilities: pokemon.abilities!)
+        self.pokemon.moves = getMovesForPokemon(moves: pokemon.moves!)
         
         self.listPokemons.append(self.pokemon)
         
         if finishProcessOfApi {
             self.output.listPokemonsGeneration.accept(listPokemons)
         }
+    }
+    
+    private func getMovesForPokemon(moves: [Move]) -> [String]{
+        
+        var stringMoves = [String]()
+        var varMoves = moves
+        
+        guard moves.count > 5 else {
+            for _ in 1...varMoves.count{
+                if let pokemonMoves = moves.last {
+                    stringMoves.append((pokemonMoves.move?.name)!)
+                    varMoves.removeLast()
+                }
+            }
+            return stringMoves
+        }
+        
+        
+        for _ in 1...5{
+            if let pokemonMoves = moves.last {
+                stringMoves.append((pokemonMoves.move?.name)!)
+                varMoves.removeLast()
+            }
+        }
+        
+        return stringMoves
+    }
+    
+    
+    private func getAbilitiesForPokemon(abilities: [Ability]) -> [String]{
+        
+        var stringAbilities = [String]()
+        let varAbilities =  abilities
+        
+        for ability in varAbilities {
+            stringAbilities.append(ability.ability!.name!)
+        }
+        
+        return stringAbilities
     }
     
     

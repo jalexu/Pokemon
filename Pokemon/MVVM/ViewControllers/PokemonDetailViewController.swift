@@ -19,6 +19,8 @@ class PokemonDetailViewController: BaseViewController {
     @IBOutlet weak var powerTwoLabel: UILabel!
     @IBOutlet weak var pokemonDescriptionText: UITextView!
     @IBOutlet var frontViewPokemon: UIView!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var abilitiesLabel: UILabel!
     
     
     //MARK: -IBAction
@@ -30,14 +32,7 @@ class PokemonDetailViewController: BaseViewController {
     
     //MARK: -Properties
     private let pokemonDetailViewModel = PokemonDetailViewModel()
-    var imagePower: UIImage?
-    var imagePowerTWo: UIImage?
-    var imagePokemon: UIImage?
-    var namePowerOne: String?
-    var namePowerTwo: String?
-    var namePokemon: String?
-    var idPokemon: Int?
-    var moves: [String]?
+    var pokemon: Pokemon?
     var imagesPowerPokemon: ProtocolImagesForPokemons!
     
     override func viewDidLoad() {
@@ -53,7 +48,7 @@ class PokemonDetailViewController: BaseViewController {
     }
     
     private func build(){
-        pokemonDetailViewModel.input.idPokemon.accept(idPokemon!)
+        pokemonDetailViewModel.input.idPokemon.accept(pokemon!.id!)
         pokemonDetailViewModel.output.descriptionPokemons.subscribe(
             onNext:{ description in
                 if description != nil {
@@ -64,24 +59,26 @@ class PokemonDetailViewController: BaseViewController {
 
     
     func septupUI() {
-        self.pokemonImageView.image = imagePokemon
-        self.pekemoNameLabel.text = namePokemon
-        self.powerOneLabel.text = namePowerOne
-        self.powerOneImage.image = imagePower
+        self.pokemonImageView.image = pokemon!.imagePokemon
+        self.pekemoNameLabel.text = pokemon!.name
+        self.powerOneLabel.text = pokemon!.powerName
+        self.powerOneImage.image = pokemon!.powerOne
+        showAbilities()
+        showMoves()
         
-        guard imagePowerTWo != nil else {
+        guard pokemon?.powerTwo != nil else {
             powerTwoView.isHidden = true
             return
         }
-        self.powerTwoImage.image = imagePowerTWo
-        self.powerTwoLabel.text = namePowerTwo
+        self.powerTwoImage.image = pokemon!.powerTwo
+        self.powerTwoLabel.text = pokemon!.powerNameTwo
     }
     
     func changeColorStoryBoard(){
         imagesPowerPokemon = ImagesForPokemons()
         
-        guard namePowerTwo != nil else {
-            let color = imagesPowerPokemon.getColorForPower(namePower: namePowerOne!)
+        guard pokemon?.powerNameTwo != nil else {
+            let color = imagesPowerPokemon.getColorForPower(namePower: pokemon!.powerName!)
             self.frontViewPokemon.backgroundColor = color
             self.frontViewPokemon.backgroundColor?.withAlphaComponent(0.9)
             self.powerOneLabel.textColor = color
@@ -89,11 +86,29 @@ class PokemonDetailViewController: BaseViewController {
             
         }
         
-        let color = imagesPowerPokemon.getColorForPower(namePower: namePowerOne!)
+        let color = imagesPowerPokemon.getColorForPower(namePower: pokemon!.powerName!)
         self.frontViewPokemon.backgroundColor? = color
         self.frontViewPokemon.backgroundColor?.withAlphaComponent(0.9)
         self.powerOneLabel.textColor = color
-        self.powerTwoLabel.textColor = imagesPowerPokemon.getColorForPower(namePower: namePowerTwo!)
+        self.powerTwoLabel.textColor = imagesPowerPokemon.getColorForPower(namePower: pokemon!.powerNameTwo!)
+    }
+    
+    
+    private func showAbilities(){
+        var strg: String = ""
+        for ability in pokemon!.abilities! {
+            strg = strg + "\(ability), "
+        }
+        abilitiesLabel.text = strg
+    }
+    
+    
+    private func showMoves(){
+        var strg: String = ""
+        for moves in pokemon!.moves! {
+            strg = strg + "\(moves), "
+        }
+        movesLabel.text = strg
     }
 
 }

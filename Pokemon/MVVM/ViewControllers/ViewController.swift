@@ -15,12 +15,15 @@ class PokemonListViewController: BaseViewController{
     
     //MARK: -Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: - Properties
     private let pokemonListViewModel = PokemonListViewModel()
     private let cellId = "PokemonTableViewCell"
     private var dataSource = [Pokemon]()
     private var pokemonIndexSelect = Pokemon()
+    private var searchPokemon = [Pokemon]()
+    private var searching = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,7 @@ class PokemonListViewController: BaseViewController{
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
+        searchBar.delegate = self
         
     }
     
@@ -51,6 +55,9 @@ class PokemonListViewController: BaseViewController{
 //MARK: - UITableViewDataSource
 extension  PokemonListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searching{
+            return searchPokemon.count
+        }
         return dataSource.count
     }
     
@@ -59,7 +66,12 @@ extension  PokemonListViewController: UITableViewDataSource {
         
         if let createCell = cell as? PokemonTableViewCell {
             //se confirufra la celda
-            createCell.septupCellWiht(pokemon: dataSource[indexPath.row])
+            if searching {
+                createCell.septupCellWiht(pokemon: searchPokemon[indexPath.row])
+            } else {
+                createCell.septupCellWiht(pokemon: dataSource[indexPath.row])
+            }
+            
         }
         
         return cell
@@ -67,7 +79,12 @@ extension  PokemonListViewController: UITableViewDataSource {
 }
 
 
+//MARK: -UITableViewDelegate
 extension PokemonListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.pokemonIndexSelect = dataSource[indexPath.row]
@@ -79,21 +96,19 @@ extension PokemonListViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pokemonDetailSegue" {
             let vc = segue.destination as! PokemonDetailViewController
-            vc.imagePower = pokemonIndexSelect.powerOne
-            vc.imagePokemon = pokemonIndexSelect.imagePokemon
-            vc.namePowerOne = pokemonIndexSelect.powerName
-            vc.namePokemon = pokemonIndexSelect.name
-            vc.idPokemon = pokemonIndexSelect.id
-            vc.moves = pokemonIndexSelect.moves
-            
-            if let namePowerTwo = pokemonIndexSelect.powerNameTwo{
-                vc.namePowerTwo = namePowerTwo
-            }
-            
-            if let powerTwo = pokemonIndexSelect.powerTwo{
-                vc.imagePowerTWo = powerTwo
-            }
+            vc.pokemon = pokemonIndexSelect
         }
+    }
+    
+}
+
+//MARK: -UISearchBarDelegate
+extension PokemonListViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchPokemon = dataSource.filter({ $0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        self.searching = true
+        self.tableView.reloadData()
     }
     
 }
