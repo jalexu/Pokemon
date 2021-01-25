@@ -38,9 +38,7 @@ class PokemonListViewController: BaseViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        septupUI()
         bind()
-        pokemonListViewModel.input.nameGeneration.accept(("generation-vi",1,20))
     }
     
     private func septupUI() {
@@ -48,6 +46,12 @@ class PokemonListViewController: BaseViewController{
         tableView.delegate = self
         tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        septupUI()
+        pokemonListViewModel.input.nameGeneration.accept(("generation-vi",1,20))
     }
     
     func bind(){

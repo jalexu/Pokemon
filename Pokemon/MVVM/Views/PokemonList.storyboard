@@ -21,7 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1aG-L7-Sge">
                                 <rect key="frame" x="0.0" y="143" width="375" height="524"/>
                                 <color key="backgroundColor" name="launch-screen-color"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" systemColor="systemGreenColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bV0-4a-NGg">
@@ -55,12 +55,17 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R7-oh-6d3">
-                                <rect key="frame" x="315" y="607" width="40" height="40"/>
+                                <rect key="frame" x="162.5" y="597" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="KMA-yJ-q8N"/>
-                                    <constraint firstAttribute="width" constant="40" id="Nah-0b-MMa"/>
+                                    <constraint firstAttribute="height" constant="50" id="KMA-yJ-q8N"/>
+                                    <constraint firstAttribute="width" constant="50" id="Nah-0b-MMa"/>
                                 </constraints>
-                                <state key="normal" image="like"/>
+                                <state key="normal" image="RedComprobando"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="likeButtonAction:" destination="WGp-6I-Bv1" eventType="touchUpInside" id="PkR-vm-KHn"/>
                                 </connections>
@@ -74,11 +79,11 @@
                             <constraint firstItem="bV0-4a-NGg" firstAttribute="top" secondItem="81m-aS-XwK" secondAttribute="top" id="Gmg-o6-LK4"/>
                             <constraint firstItem="1aG-L7-Sge" firstAttribute="leading" secondItem="81m-aS-XwK" secondAttribute="leading" id="IpH-FO-DmX"/>
                             <constraint firstItem="1aG-L7-Sge" firstAttribute="top" secondItem="bV0-4a-NGg" secondAttribute="bottom" id="JsW-aS-jIL"/>
+                            <constraint firstItem="81m-aS-XwK" firstAttribute="bottom" secondItem="7R7-oh-6d3" secondAttribute="bottom" constant="20" id="LSb-w0-Aw1"/>
                             <constraint firstItem="1aG-L7-Sge" firstAttribute="bottom" secondItem="81m-aS-XwK" secondAttribute="bottom" id="TyE-og-rec"/>
                             <constraint firstItem="bV0-4a-NGg" firstAttribute="centerX" secondItem="kd2-41-COG" secondAttribute="centerX" id="bDa-Uu-Fgq"/>
-                            <constraint firstItem="81m-aS-XwK" firstAttribute="trailing" secondItem="7R7-oh-6d3" secondAttribute="trailing" constant="20" id="drH-Py-Nep"/>
+                            <constraint firstItem="7R7-oh-6d3" firstAttribute="centerX" secondItem="kd2-41-COG" secondAttribute="centerX" id="gCE-Oe-G06"/>
                             <constraint firstItem="bV0-4a-NGg" firstAttribute="leading" secondItem="81m-aS-XwK" secondAttribute="leading" id="gNg-Qu-YBD"/>
-                            <constraint firstItem="81m-aS-XwK" firstAttribute="bottom" secondItem="7R7-oh-6d3" secondAttribute="bottom" constant="20" id="ztE-Ie-OWe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="list.dash" catalog="system" id="l6q-Qm-kqd"/>
@@ -166,8 +171,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2I-Ot-tqB">
-                                <rect key="frame" x="10" y="10" width="84.5" height="22"/>
-                                <state key="normal" title="Regresar" image="chevron.backward" catalog="system">
+                                <rect key="frame" x="10" y="10" width="52.5" height="22"/>
+                                <state key="normal" title="Back" image="chevron.backward" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                                 <connections>
@@ -314,7 +319,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btv-aJ-cjM">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="23"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" systemColor="systemOrangeColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-RN-3dA">
@@ -328,7 +333,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Least 5 moves" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-6F-AFN">
                                                 <rect key="frame" x="0.0" y="61.5" width="335" height="23"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="systemPinkColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-fp-Wcj">
@@ -366,11 +371,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ho-J0-Udd">
-                                <rect key="frame" x="94" y="58" width="187.5" height="129.5"/>
+                                <rect key="frame" x="94" y="68" width="187.5" height="129.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="80"/>
+                                        <integer key="value" value="60"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -394,7 +399,7 @@
                             <constraint firstItem="Plz-XU-W6c" firstAttribute="centerY" secondItem="hfW-or-N5v" secondAttribute="centerY" multiplier="1.25" id="DAa-Im-7Fc"/>
                             <constraint firstItem="2Ho-J0-Udd" firstAttribute="height" secondItem="mwc-Qq-ohp" secondAttribute="height" multiplier="0.2" id="Juy-8f-h4b"/>
                             <constraint firstItem="2Ho-J0-Udd" firstAttribute="width" secondItem="mwc-Qq-ohp" secondAttribute="width" multiplier="0.5" id="YuF-Xj-PNr"/>
-                            <constraint firstItem="2Ho-J0-Udd" firstAttribute="centerY" secondItem="hfW-or-N5v" secondAttribute="centerY" multiplier="0.38" id="eAN-l8-4qy"/>
+                            <constraint firstItem="2Ho-J0-Udd" firstAttribute="centerY" secondItem="hfW-or-N5v" secondAttribute="centerY" multiplier="0.41" id="eAN-l8-4qy"/>
                             <constraint firstItem="hfW-or-N5v" firstAttribute="trailing" secondItem="Y8C-Fd-AQc" secondAttribute="trailing" constant="25" id="eth-pD-SlC"/>
                             <constraint firstItem="Plz-XU-W6c" firstAttribute="width" secondItem="mwc-Qq-ohp" secondAttribute="width" id="hM6-Qh-2sb"/>
                             <constraint firstItem="2Ho-J0-Udd" firstAttribute="centerX" secondItem="hfW-or-N5v" secondAttribute="centerX" id="ouU-8R-JTE"/>
@@ -423,6 +428,7 @@
     <resources>
         <image name="Back" width="21" height="12"/>
         <image name="PurpleColor" width="2048" height="2048"/>
+        <image name="RedComprobando" width="256" height="256"/>
         <image name="cancel" width="256" height="256"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="like" width="256" height="256"/>
@@ -441,6 +447,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

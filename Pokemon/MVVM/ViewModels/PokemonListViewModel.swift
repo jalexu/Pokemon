@@ -33,6 +33,7 @@ class PokemonListViewModel: ViewModelProtocol {
     
     struct Output{
         var listPokemonsGeneration = BehaviorRelay<[Pokemon]>(value: [])
+        var isError = BehaviorRelay<Bool>(value: false)
     }
     
     init() {
@@ -90,6 +91,7 @@ class PokemonListViewModel: ViewModelProtocol {
                     
                     self.input.namesPokemons.accept(namesOfPokemons)
                 }, onError: { reponseError in
+                    self.output.isError.accept(true)
                     print("Error")
                 }).disposed(by: disposeBag)
         }catch {

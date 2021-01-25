@@ -24,16 +24,9 @@ class LikeViewController: BaseViewController {
     
     @IBAction func likeButtonAction(_ sender: Any) {
         if pokemon.count > 0 {
-            setupUI()
-            savePokemon(savePokemon: pokemon[0]) { (response) in
-                switch response{
-                case .success:
-                    NotificationBanner(title: "Your pokemon has been save", subtitle: "Succelful", style: .success).show()
-                case .failure:
-                    NotificationBanner(title: "We can´t save your pokemon", subtitle: "Warning", style: .warning).show()
-                }
-            }
+            selectPokemonForSave()
             pokemon.removeFirst()
+            setupUI()
         } else {
             NotificationBanner(title: "Don't have more pokemons for to see.", subtitle: "List is empty", style: .warning).show()
         }
@@ -54,6 +47,7 @@ class LikeViewController: BaseViewController {
     var pokemon = [Pokemon]()
     private  var appDelegate = UIApplication.shared.delegate as? AppDelegate
     private let manager = CoreDataManager()
+    private var countPokemon: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +108,18 @@ class LikeViewController: BaseViewController {
             completion(.failure(error))
           print("Error with get data — \(error)")
             
+        }
+    }
+    
+    
+    private func selectPokemonForSave(){
+        savePokemon(savePokemon: pokemon[0]) { (response) in
+            switch response{
+            case .success:
+                NotificationBanner(title: "Your pokemon has been save", subtitle: "Succelful", style: .success).show()
+            case .failure:
+                NotificationBanner(title: "We can´t save your pokemon", subtitle: "Warning", style: .warning).show()
+            }
         }
     }
     

@@ -23,11 +23,11 @@ class PokemonDetailViewModel: ViewModelProtocol {
     //MARK: -Input and Output
     struct Input {
         var idPokemon = BehaviorRelay<Int>(value: 0)
-        
     }
     
     struct Output{
         var descriptionPokemons = BehaviorRelay<String?>(value: nil)
+        var isError = BehaviorRelay<Bool>(value: false)
     }
     
     init() {
@@ -67,6 +67,7 @@ class PokemonDetailViewModel: ViewModelProtocol {
                         }
                     }
                 }, onError: { responseError in
+                    self.output.isError.accept(true)
                     print("Error")
                 }).disposed(by: disposeBag)
         } catch {
