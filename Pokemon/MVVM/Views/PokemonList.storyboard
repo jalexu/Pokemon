@@ -38,13 +38,12 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tb-3Z-zwg">
-                                        <rect key="frame" x="99.5" y="108" width="176" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tb-3Z-zwg">
+                                        <rect key="frame" x="66.5" y="108" width="242" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="BOL-DO-Wp7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Select another category here">
+                                        <state key="normal" title="Select anoher generation here">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
