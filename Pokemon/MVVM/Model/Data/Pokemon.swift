@@ -18,6 +18,7 @@ struct Pokemon {
     var powerTwo: UIImage?
     var moves: [String]?
     var abilities: [String]?
+    var imageURL: String?
 }
 
 struct PokemonDescription {

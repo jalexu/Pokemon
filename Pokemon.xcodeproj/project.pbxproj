@@ -41,6 +41,9 @@
 		C28D48E325BCEC3800C34076 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D48E225BCEC3800C34076 /* Constants.swift */; };
 		C28D490A25BCF15E00C34076 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D490925BCF15E00C34076 /* BaseViewController.swift */; };
 		C296A6FB25BE00E4008BBCDD /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296A6FA25BE00E4008BBCDD /* LikeViewController.swift */; };
+		C296A75625BE10B5008BBCDD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296A75525BE10B5008BBCDD /* CoreDataManager.swift */; };
+		C296A7B425BE2091008BBCDD /* PokemonResponseCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296A7B325BE2091008BBCDD /* PokemonResponseCoreData.swift */; };
+		C296A83C25BE317B008BBCDD /* Pokemon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C296A83A25BE317B008BBCDD /* Pokemon.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,9 @@
 		C28D48E225BCEC3800C34076 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C28D490925BCF15E00C34076 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C296A6FA25BE00E4008BBCDD /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		C296A75525BE10B5008BBCDD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C296A7B325BE2091008BBCDD /* PokemonResponseCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponseCoreData.swift; sourceTree = "<group>"; };
+		C296A83B25BE317B008BBCDD /* Pokemon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokemon.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 				C28D479925BC884900C34076 /* Assets.xcassets */,
 				C28D479B25BC884900C34076 /* LaunchScreen.storyboard */,
 				C28D479E25BC884900C34076 /* Info.plist */,
+				C296A83A25BE317B008BBCDD /* Pokemon.xcdatamodeld */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -173,6 +180,8 @@
 				C28D48B525BCE98700C34076 /* ImagesForPokemons.swift */,
 				C28D48E225BCEC3800C34076 /* Constants.swift */,
 				C28D490925BCF15E00C34076 /* BaseViewController.swift */,
+				C296A75525BE10B5008BBCDD /* CoreDataManager.swift */,
+				C296A7B325BE2091008BBCDD /* PokemonResponseCoreData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 				C28D490A25BCF15E00C34076 /* BaseViewController.swift in Sources */,
 				C250F34125BD091B0057FCCF /* ViewController.swift in Sources */,
 				C250F34425BD094D0057FCCF /* PokemonDetailViewController.swift in Sources */,
+				C296A7B425BE2091008BBCDD /* PokemonResponseCoreData.swift in Sources */,
 				C28D488125BCDC4800C34076 /* Pokemon.swift in Sources */,
 				C28D48E325BCEC3800C34076 /* Constants.swift in Sources */,
 				C28D485D25BCC28F00C34076 /* PokemonListViewModel.swift in Sources */,
@@ -408,7 +418,9 @@
 				C28D488925BCDD4400C34076 /* PokemonResponse.swift in Sources */,
 				C28D488F25BCDDE400C34076 /* Type.swift in Sources */,
 				C28D484A25BCBD7E00C34076 /* Ability.swift in Sources */,
+				C296A83C25BE317B008BBCDD /* Pokemon.xcdatamodeld in Sources */,
 				C28D486625BCC7DA00C34076 /* PokemonListBLBehavior.swift in Sources */,
+				C296A75625BE10B5008BBCDD /* CoreDataManager.swift in Sources */,
 				C28D479325BC884600C34076 /* SceneDelegate.swift in Sources */,
 				C28D484625BCBC8100C34076 /* GenerationResponse.swift in Sources */,
 				C28D486A25BCC8ED00C34076 /* PokemonListBL.swift in Sources */,
@@ -615,6 +627,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C296A83A25BE317B008BBCDD /* Pokemon.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C296A83B25BE317B008BBCDD /* Pokemon.xcdatamodel */,
+			);
+			currentVersion = C296A83B25BE317B008BBCDD /* Pokemon.xcdatamodel */;
+			path = Pokemon.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C28D478525BC884600C34076 /* Project object */;
 }

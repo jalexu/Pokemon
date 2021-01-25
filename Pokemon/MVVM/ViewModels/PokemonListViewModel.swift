@@ -43,6 +43,14 @@ class PokemonListViewModel: ViewModelProtocol {
         bin()
     }
     
+    init(pokemonBL: PokemonListBLBehavior) {
+        input = Input()
+        output = Output()
+        pokemonBLBehavior = pokemonBL
+        imagesPowerPokemon = ImagesForPokemons()
+        bin()
+    }
+    
     func bin() {
         input.namesPokemons.subscribe(
             onNext: { namesPokemon in
@@ -109,6 +117,7 @@ class PokemonListViewModel: ViewModelProtocol {
         self.pokemon.name = pokemon.name
         self.pokemon.powerName = pokemon.types![0].type!.name!
         self.pokemon.powerNameTwo = nil
+        self.pokemon.imageURL = pokemon.sprites!.front_default!
         self.pokemon.imagePokemon = UIImage(data: self.imagesPowerPokemon.setImage(pokemon.sprites!.front_default!))
         self.pokemon.powerOne = self.imagesPowerPokemon.setImageOfPowers(typePower: pokemon.types![0].type!.name!)
         self.pokemon.powerTwo = nil

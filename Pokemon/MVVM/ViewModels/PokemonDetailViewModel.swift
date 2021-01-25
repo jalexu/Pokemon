@@ -37,6 +37,13 @@ class PokemonDetailViewModel: ViewModelProtocol {
         build()
     }
     
+    init(pokemonDetailBL: PokemonListBLBehavior) {
+        input = Input()
+        output = Output()
+        pokemonBLBehavior = pokemonDetailBL
+        build()
+    }
+    
     func build(){
         self.input.idPokemon.subscribe(
             onNext: { idPokemon in

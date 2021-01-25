@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import ActionSheetPicker_3_0
 import SwiftUI
+import NotificationBannerSwift
 
 class PokemonListViewController: BaseViewController{
     
@@ -66,6 +67,7 @@ class PokemonListViewController: BaseViewController{
                 self.showCategories(self.categoryButton, generationList: self.generations)
             }
         ).disposed(by: disposeBag)
+        
     }
     
     
